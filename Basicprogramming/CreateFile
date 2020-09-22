@@ -1,0 +1,54 @@
+#f = open(file='test.txt',mode='w')
+#f.write('Alex  CEO\n')
+#f.write("it is a great start")
+#f.close()
+
+#f = open(file='test.txt',mode='r')
+#print(f.readline())
+#data =f.read(10)
+#print(data)
+#f.close()
+
+#f = open(file='test.txt',mode='r')
+#f.seek(2) #走字节
+#print(f.readline())
+#for line in f:
+#    print(line.split())
+
+#for i in range(100):
+#    print(i)
+'''
+f=open(file='write_read',mode='w+')
+f.write("hello world1\n")
+f.write("hello world2\n")
+f.write("hello world3\n")
+f.write("hello world4\n")
+f.write("hello world5\n")
+f.seek(0)
+print(f.readline())
+
+
+
+f=open(file='write_read',mode='r+')
+f.write("hello world11\n")
+f.write("hello world22\n")
+f.write("hello world33\n")
+f.write("hello world44\n")
+f.write("hello world55\n")
+print(f.readline())
+'''
+
+import os
+
+f=open(file='write_read',mode='r')
+f_new=open(file='write_write',mode='w')
+
+for line in f:
+    if 'hello' in line:
+        line=line.replace('hello','hi')
+    f_new.write(line)
+f.close()
+f_new.close()
+
+#os.remove("write_read")
+os.rename('write_write','write_read')
